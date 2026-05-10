@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"> <!-- 文字化け防止 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- スマホ対応 -->
+  <title>十六夜セツナ</title>
+  <link rel="stylesheet" href="style.css"> <!-- CSS読み込み -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+  <!-- 左：メニュー -->
+  <nav class="nav-left">
+    <ul class="menu">
+      <li class="dropdown">
+        <a href="#">Menu ▼</a>
+        <ul class="dropdown-content">
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="discography.html">Discography</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 中央：タイトル -->
+  <h1 class="title">
+    <a href="index.html">十六夜 セツナ</a> <!-- トップページへ -->
+  </h1>
+
+  <!-- 右：SNS -->
+  <div class="sns">
+    <a href="https://twitter.com/@tikiyonohikari" target="_blank">
+      <i class="fab fa-twitter"></i>
+    </a>
+
+    <a href="https://instagram.com/setsuna_1341" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://youtube.com/" target="_blank">
+      <i class="fab fa-youtube"></i>
+    </a>
+
+    <a href="https://www.pixiv.net/users/50591392//" target="_blank">
+        <i class="fab fa-pixiv"></i>
+      </a>
+  </div>
+
+</header>
+
+  <!-- ===== メインビジュアル ===== -->
+  <section class="hero">
+    <img src="images/Artist_wide.png" class="hero-image">
+  </section>
+
+  <!-- ===== 自己紹介 ===== -->
+  <section id="about" class="card">
+    <h2>About</h2>
+    <p>
+      このサイトはエイプリルフール企画をまとめたものです。<br>
+      実在の人物や団体などとは関係ありません。<br>
+      それを解った上で素人制作のこのサイトを楽しんでね♡
+      
+    </p>
+  </section>
+
+<!-- ===== カルーセル ===== -->
+<section class="carousel">
+
+  <div class="carousel-wrapper">
+
+    <!-- スライド本体 -->
+    <div class="carousel-track">
+
+      <a href="news/20260401A.html" class="slide">
+        <img src="images/release3.png">
+        <p>新曲リリース！</p>
+      </a>
+
+      <a href="news/20260220A.html" class="slide">
+        <img src="images/event.png">
+        <p>リリースイベント開催決定！</p>
+      </a>
+
+      <a href="news/20260401B.html" class="slide">
+        <img src="images/news_mv3.png">
+        <p>MV公開！</p>
+      </a>
+
+    </div>
+
+    <!-- 矢印 -->
+    <button class="prev">◀</button>
+    <button class="next">▶</button>
+
+  </div>
+
+  <!-- ドット -->
+  <div class="dots"></div>
+
+</section>
+
+  <!-- ===== カード一覧 ===== -->
+  <section class="grid">
+
+    <!-- ===== カード① ===== -->
+    <a href="detail1.html" class="card-link"> <!-- クリックで詳細ページへ -->
+      <div class="card">
+        <img src="images/1st_single.jpg" alt=""> <!-- 画像 -->
+        <div class="card-content">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+    </a>
+
+    <!-- ===== カード② ===== -->
+    <a href="detail2.html" class="card-link">
+      <div class="card">
+        <img src="images/2ed_single.jpg" alt="">
+        <div class="card-content">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+    </a>
+
+  </section>
+
+  <!-- ===== フッター ===== -->
+  <footer class="site-footer">
+    <p>© 2026 Setsuna Project</p>
+  </footer>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+
+    if (!track) {
+      console.log("carousel not found");
+    }
+    else {
+      const slides = document.querySelectorAll('.slide');
+      const prev = document.querySelector('.prev');
+      const next = document.querySelector('.next');
+      const dotsContainer = document.querySelector('.dots');
+
+      let index = 0;
+      let interval;
+
+  /* ===== ドット生成 ===== */
+      slides.forEach((_, i) => {
+        const dot = document.createElement('span');
+        if (i === 0) dot.classList.add('active');
+
+        dot.addEventListener('click', () => {
+        index = i;
+        updateSlide();
+      });
+
+      dotsContainer.appendChild(dot);
+      });
+
+      function updateSlide() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+
+        document.querySelectorAll('.dots span').forEach(dot => dot.classList.remove('active'));
+        document.querySelectorAll('.dots span')[index].classList.add('active');
+      }
+
+      next.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        updateSlide();
+      });
+
+      prev.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        updateSlide();
+      });
+
+      function startAutoSlide() {
+        interval = setInterval(() => {
+          index = (index + 1) % slides.length;
+          updateSlide();
+        }, 3000);
+      }
+
+      function stopAutoSlide() {
+      clearInterval(interval);
+    }
+
+    document.querySelector('.carousel').addEventListener('mouseenter', stopAutoSlide);
+    document.querySelector('.carousel').addEventListener('mouseleave', startAutoSlide);
+
+    startAutoSlide();
+
+  }
+  </script>
+</script>
+</body>
+</html>
