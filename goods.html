@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"> <!-- 文字化け防止 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- スマホ対応 -->
+  <title>十六夜セツナ</title>
+  <link rel="stylesheet" href="style.css"> <!-- CSS読み込み -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goods</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    // カテゴリ切り替え
+    function filterGoods(category){
+
+      const cards =
+        document.querySelectorAll('.goods-card');
+
+      cards.forEach(card => {
+
+        if(
+          category === 'all' ||
+          card.dataset.category === category
+        ){
+          card.style.display = 'block';
+        }
+        else{
+          card.style.display = 'none';
+        }
+
+      });
+
+    }
+  </script>
+
+</head>
+
+<body>
+  <!-- 共通ヘッダー（コピペでOK） -->
+  <header>
+    <!-- 左：メニュー -->
+    <nav class="nav-left">
+      <ul class="menu">
+        <li class="dropdown">
+          <a href="#">Menu ▼</a>
+          <ul class="dropdown-content">
+            <li><a href="../profile.html">Profile</a></li>
+            <li><a href="../discography.html">Discography</a></li>
+            <li><a href="../news.html">News</a></li>
+            <li><a href="../goods.html">Goods</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 中央：タイトル -->
+    <h1 class="title">
+      <a href="../index.html">十六夜 セツナ</a> <!-- トップページへ -->
+    </h1>
+
+    <!-- 右：SNS -->
+    <div class="sns">
+      <a href="https://twitter.com/@tikiyonohikari" target="_blank">
+        <i class="fab fa-twitter"></i>
+      </a>
+
+      <a href="https://instagram.com/setsuna_1341" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="https://youtube.com/" target="_blank">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+
+  </header>
+  
+  <section class="section-box">
+
+    <h1>Goods</h1>
+
+    <!-- カテゴリボタン -->
+    <div class="goods-filter">
+
+      <button onclick="filterGoods('all')">
+        ALL
+      </button>
+
+      <button onclick="filterGoods('music')">
+        MUSIC
+      </button>
+
+      <button onclick="filterGoods('line')">
+        LINEスタンプ
+      </button>
+
+      <button onclick="filterGoods('event')">
+        EVENT
+      </button>
+
+    </div>
+
+    <!-- 商品一覧 -->
+    <div class="goods-container">
+
+      <!-- LINEスタンプ -->
+      <a href="goods/line-stamp_01.html" class="card-link">
+
+        <div
+          class="goods-card"
+          data-category="line">
+
+          <img src="images/stamp01.jpeg">
+
+          <div class="card-content">
+
+            <span class="goods-status sale">
+              発売中
+            </span>
+
+            <h3>LINEスタンプ第1弾</h3>
+            <p>
+              日常で使いやすい<br>
+              全24種類
+            </p>
+
+          </div>
+
+        </div>
+
+      </a>
+
+      <!-- 今後追加予定 -->
+      <a href="discography/3rdsingle.html" class="card-link">
+
+        <div
+          class="goods-card"
+          data-category="music">
+
+          <img src="images/3rd_single.jpg">
+
+          <div class="card-content">
+
+            <span class="goods-status coming">
+              COMING SOON
+            </span>
+
+            <h3>3rd single</h3>
+            <p>Re:volution to νworld</p>
+
+          </div>
+
+        </div>
+
+      </a>
+
+      <a href="discography/2edsingle.html" class="card-link">
+
+        <div
+          class="goods-card"
+          data-category="music">
+
+          <img src="images/2ed_single.jpg">
+
+          <div class="card-content">
+
+            <span class="goods-status coming">
+              COMING SOON
+            </span>
+
+            <h3>2nd single </h3>
+            <p>アスノカオリ</p>
+
+          </div>
+
+        </div>
+
+      </a>
+
+      <a href="discography/1stsingle.html" class="card-link">
+
+        <div
+          class="goods-card"
+          data-category="music">
+
+          <img src="images/1st_single.jpg">
+
+          <div class="card-content">
+
+            <span class="goods-status coming">
+              COMING SOON
+            </span>
+
+            <h3>1st single</h3>
+            <p>恋愛えくすぷろーじょん</p>
+
+          </div>
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </section>
+
+</body>
+</html>

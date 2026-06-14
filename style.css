@@ -378,6 +378,172 @@ header {
   background: white;
 }
 
+/* =========================
+   Goodsページ
+========================= */
+
+/* 商品一覧エリア */
+.goods-container{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:40px;
+
+  margin-top:40px;
+
+}
+
+/* 商品カード */
+.goods-card{
+
+  width:320px;
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(10px);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  transition:0.3s;
+
+}
+
+/* カードにマウスを乗せた時 */
+.goods-card:hover{
+
+  transform:
+    translateY(-8px);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.3);
+
+}
+
+/* 商品画像 */
+.goods-card img{
+
+  width:100%;
+
+  height:250px;
+
+  object-fit:cover;
+
+}
+
+/* 商品説明 */
+.goods-card .card-content{
+
+  padding:20px;
+
+}
+
+/* 発売状態表示 */
+.goods-status{
+
+  display:inline-block;
+
+  padding:5px 12px;
+
+  border-radius:999px;
+
+  font-size:12px;
+
+  margin-bottom:10px;
+
+}
+
+/* 発売中 */
+.sale{
+
+  background:#06C755;
+
+  color:white;
+
+}
+
+/* 近日公開 */
+.coming{
+
+  background:orange;
+
+  color:white;
+
+}
+
+/* =========================
+   カテゴリボタン
+========================= */
+
+.goods-filter{
+
+  display:flex;
+
+  gap:12px;
+
+  flex-wrap:wrap;
+
+  margin-top:30px;
+
+}
+
+/* ボタン共通 */
+.goods-filter button{
+
+  padding:10px 20px;
+
+  border:none;
+
+  border-radius:999px;
+
+  cursor:pointer;
+
+  background:
+    rgba(255,255,255,0.1);
+
+  color:white;
+
+  transition:0.3s;
+
+}
+
+/* ボタンにカーソルを乗せた時 */
+.goods-filter button:hover{
+
+  background:
+    rgba(255,255,255,0.25);
+
+}
+
+/* =========================
+   スマホ対応
+========================= */
+
+@media screen and (max-width:768px){
+
+  .goods-container{
+
+    justify-content:center;
+
+  }
+
+  .goods-card{
+
+    width:90%;
+
+    max-width:350px;
+
+  }
+
+}
+
 /* ===== ゲーム用 ===== */
 
 #game {
