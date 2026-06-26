@@ -478,6 +478,14 @@ header {
 
 }
 
+/* 販売終了 */
+.unsale{
+
+  background: gray;
+
+  color: white;
+}
+
 /* =========================
    カテゴリボタン
 ========================= */
@@ -601,4 +609,88 @@ header {
 
 .choice:hover {
   background: gray;
+}
+
+/* =====================
+   物販ポスター
+===================== */
+
+.goods-poster{
+  max-width: 1400px;
+  margin: auto;
+  padding: 40px;
+}
+
+.poster-title{
+  text-align: center;
+  font-size: 5rem;
+  color: white;
+  margin-bottom: 0;
+}
+
+.poster-subtitle{
+  text-align: center;
+  font-size: 1.4rem;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.poster-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+  gap: 30px;
+}
+
+.poster-item{
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  text-align: center;
+
+  transition: 0.3s;
+}
+
+.poster-item:hover{
+  transform: translateY(-8px);
+}
+
+.poster-item img{
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  background: violet;
+}
+
+.item-info{
+  padding: 20px;
+}
+
+.item-info h2{
+  color: white;
+  margin-bottom: 10px;
+}
+
+.price{
+  font-size: 1.5rem;
+
+  color: #fff;
+}
+
+.desc{
+  color: white;
+}
+
+/* 2種並べ */
+.stand-grid{
+  display: flex;
+}
+
+.stand-grid img{
+  width: 50%;
+  height: 350px;
+
+  object-fit: contain;
 }
