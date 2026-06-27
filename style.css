@@ -1,3 +1,10 @@
+html {
+  overscroll-behavior: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 /* ===== 全体 ===== */
 body {
   margin: 0;
