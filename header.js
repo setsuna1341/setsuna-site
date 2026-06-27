@@ -9,6 +9,7 @@ fetch(base + "/header.html")
     document.getElementById("header").innerHTML = html;
 
     document.querySelectorAll("#header a[href^='/']").forEach(a => {
-      a.href = base + a.getAttribute("href");
+      const href = a.getAttribute("href");
+      a.setAttribute("href", base + href);
     });
   });
